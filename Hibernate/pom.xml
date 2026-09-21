@@ -10,9 +10,7 @@
         <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>ifc.ibirama.hibernate.Hibernate</exec.mainClass>
         <hibernate.version>7.4.0.Final</hibernate.version>
-   
     </properties>
-    
     <dependencies>
         <dependency>
             <groupId>org.hibernate.orm</groupId>

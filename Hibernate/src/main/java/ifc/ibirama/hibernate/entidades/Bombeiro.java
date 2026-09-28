@@ -4,16 +4,33 @@
  */
 package ifc.ibirama.hibernate.entidades;
 
+import jakarta.persistence.Column;
+import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author aluno
  */
+@Entity
+@Table(name = "Bombeiro")
 public class Bombeiro {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name="bom_id")
     private Integer id;
+    @Column(name="bom_cpf", length = 11, unique = true)
     private String cpf;
+    @Column (name="bom_dataNascimento", nullable = false)
     private LocalDate dataNascimento;
+    @Column (name="bom_nomeCompleto", nullable = false, length = 45)
     private String nomeCompleto;
+   @Column (name="bom_nomeGuerra",unique = true, nullable = false, length = 45)
     private String nomeGuerra;
 
     public Bombeiro() {
@@ -66,15 +83,18 @@ public class Bombeiro {
             Bombeiro aux = (Bombeiro) obj;
             if ((aux.getId().equals(this.id)) && (aux.getCpf().equals(this.cpf))) {
                 return true;
-            } else{
+            } else {
                 return false;
             }
-            {
-              
-            }
+
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 
 }

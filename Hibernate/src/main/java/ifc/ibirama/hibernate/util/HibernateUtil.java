@@ -4,6 +4,7 @@
  */
 package ifc.ibirama.hibernate.util;
 
+import java.util.logging.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -22,7 +23,13 @@ public class HibernateUtil {
        }  
         
             
-            
                     
     }
+
+    public static SessionFactory getSesionFactory() {
+        return FACTORY;
+    }
+
+    
+
 }

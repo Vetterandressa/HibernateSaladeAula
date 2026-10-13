@@ -10,7 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -32,7 +35,8 @@ public class Bombeiro {
     private String nomeCompleto;
    @Column (name="bom_nomeGuerra",unique = true, nullable = false, length = 45)
     private String nomeGuerra;
-
+      @OneToOne(mappedBy = "bombeiro")
+      private Usuario usuario;
     public Bombeiro() {
 
     }
@@ -77,6 +81,17 @@ public class Bombeiro {
         this.nomeGuerra = nomeGuerra;
     }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+     
+   
+    
+    
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {

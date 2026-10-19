@@ -10,6 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.HashSet;
@@ -25,18 +29,27 @@ public class Bombeiro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name="bom_id")
+    @Column(name = "bom_id")
     private Integer id;
-    @Column(name="bom_cpf", length = 11, unique = true)
+    @Column(name = "bom_cpf", length = 11, unique = true)
     private String cpf;
-    @Column (name="bom_dataNascimento", nullable = false)
+    @Column(name = "bom_dataNascimento", nullable = false)
     private LocalDate dataNascimento;
-    @Column (name="bom_nomeCompleto", nullable = false, length = 45)
+    @Column(name = "bom_nomeCompleto", nullable = false, length = 45)
     private String nomeCompleto;
-   @Column (name="bom_nomeGuerra",unique = true, nullable = false, length = 45)
+    @Column(name = "bom_nomeGuerra", unique = true, nullable = false, length = 45)
     private String nomeGuerra;
-      @OneToOne(mappedBy = "bombeiro")
-      private Usuario usuario;
+    @OneToOne(mappedBy = "bombeiro")
+    private Usuario usuario;
+    @OneToMany(mappedBy = "bombeiro")
+    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+    @ManyToMany
+    @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"), inverseJoinColumns = @JoinColumn(name = "pat_id"))
+    private Set<Patente> patente = new HashSet<Patente>();
+    
+    private Bombeiro bombeiro;
+    
+
     public Bombeiro() {
 
     }
@@ -88,8 +101,29 @@ public class Bombeiro {
     public Usuario getUsuario() {
         return usuario;
     }
-     
-   
+
+    public Set<TelefoneContato> getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Set<TelefoneContato> telefone) {
+        this.telefone = telefone;
+    }
+    public Bombeiro getBombeiro() {
+        return bombeiro;
+    }
+
+    public void setBombeiro(Bombeiro bombeiro) {
+        this.bombeiro = bombeiro;
+    }
+    public Set<Patente> getPatente() {
+        return patente;
+    }
+
+    public void setPatente(Set<Patente> patente) {
+        this.patente = patente;
+    }
+
     
     
     @Override

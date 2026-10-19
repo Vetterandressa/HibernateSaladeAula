@@ -24,5 +24,7 @@
         <mapping class= "ifc.ibirama.hibernate.entidades.Viatura"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.StatusViatura"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.Usuario"/>
+        <mapping class= "ifc.ibirama.hibernate.entidades.TelefoneContato"/>
+        <mapping class= "ifc.ibirama.hibernate.entidades.Patente"/>
     </session-factory>
 </hibernate-configuration>

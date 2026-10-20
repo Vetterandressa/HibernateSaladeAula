@@ -4,32 +4,30 @@
  */
 package ifc.ibirama.hibernate.util;
 
-import java.util.logging.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 
 /**
  *
  * @author aluno
  */
 public class HibernateUtil {
-    private static final SessionFactory FACTORY = buildSessionFactory();
-    
-    private static SessionFactory buildSessionFactory(){
-       try{
-         return new Configuration().configure().buildSessionFactory();  
-       }  catch(Throwable erro){
-           throw new ExceptionInInitializerError(erro);
-       }  
-        
-            
-                    
+     private static final SessionFactory FACTORY = buildSessionFactory();
+
+    private static SessionFactory buildSessionFactory() {
+        try {
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Throwable erro) {
+            throw new ExceptionInInitializerError(erro);
+        }
     }
 
-    public static SessionFactory getSesionFactory() {
+    public static SessionFactory getSessionFactory() {
         return FACTORY;
     }
 
-    
-
+    public static void shutdown() {
+        getSessionFactory().close();
+    }
 }

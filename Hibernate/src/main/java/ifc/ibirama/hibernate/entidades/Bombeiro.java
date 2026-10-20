@@ -39,6 +39,7 @@ public class Bombeiro {
     private String nomeCompleto;
     @Column(name = "bom_nomeGuerra", unique = true, nullable = false, length = 45)
     private String nomeGuerra;
+    /*
     @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
     @OneToMany(mappedBy = "bombeiro")
@@ -49,7 +50,7 @@ public class Bombeiro {
     
     private Bombeiro bombeiro;
     
-
+*/
     public Bombeiro() {
 
     }
@@ -93,7 +94,7 @@ public class Bombeiro {
     public void setNomeGuerra(String nomeGuerra) {
         this.nomeGuerra = nomeGuerra;
     }
-
+/*
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -125,7 +126,7 @@ public class Bombeiro {
     }
 
     
-    
+    */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {

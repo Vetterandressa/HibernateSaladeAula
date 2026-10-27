@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Configurações do Banco de Dados (MySQL) -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Bombeiro</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sistemabombeiro</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
 
@@ -21,10 +21,12 @@
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class= "ifc.ibirama.hibernate.entidades.Bombeiro"/>
+        <!--
         <mapping class= "ifc.ibirama.hibernate.entidades.Viatura"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.StatusViatura"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.Usuario"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.TelefoneContato"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.Patente"/>
+                -->
     </session-factory>
 </hibernate-configuration>

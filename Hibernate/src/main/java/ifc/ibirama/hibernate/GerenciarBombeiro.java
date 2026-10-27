@@ -29,14 +29,14 @@ public class GerenciarBombeiro {
         bombeiro01.setNomeGuerra("Oliveira");
         bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
 
-        Transation transacao = null;
+        Transaction transacao = null;
         try {
-            transacao = sessao.beginTransation();
+            transacao = sessao.beginTransaction();
 
             sessao.persist(bombeiro01);
 
             transacao.commit();
-            
+
             System.out.println("Bombeiro salvo");
         } catch (Exception erro) {
             if (transacao != null) {

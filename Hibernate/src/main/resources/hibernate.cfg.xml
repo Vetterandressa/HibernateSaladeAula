@@ -20,11 +20,12 @@
 
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class= "ifc.ibirama.hibernate.entidades.Bombeiro"/>
+        <mapping class= "ifc.ibirama.hibernate.entidades.Bombeiro"/>    
+        <mapping class= "ifc.ibirama.hibernate.entidades.Usuario"/>
         <!--
         <mapping class= "ifc.ibirama.hibernate.entidades.Viatura"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.StatusViatura"/>
-        <mapping class= "ifc.ibirama.hibernate.entidades.Usuario"/>
+    
         <mapping class= "ifc.ibirama.hibernate.entidades.TelefoneContato"/>
         <mapping class= "ifc.ibirama.hibernate.entidades.Patente"/>
                 -->

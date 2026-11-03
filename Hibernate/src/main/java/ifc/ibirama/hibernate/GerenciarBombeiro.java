@@ -24,16 +24,25 @@ public class GerenciarBombeiro {
         System.out.println("Conexão estabelecida");
 
         Bombeiro bombeiro01 = new Bombeiro();
-        bombeiro01.setCpf("12345678");
-        bombeiro01.setNomeCompleto("Sicrano de Oliveira");
-        bombeiro01.setNomeGuerra("Oliveira");
+        bombeiro01.setCpf("12312312300");
+        bombeiro01.setNomeCompleto("Beltrano Silva");
+        bombeiro01.setNomeGuerra("Silva");
         bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
+        
+        Usuario usuario01 = new Usuario();
+        usuario01.setLogin("beltrano.silva");
+        usuario.setSenha("1234");
+        
+        bombeiro01.setUsuario(usuario01);
+        usuario01.setBombeiro(bombeiro01);
+        
 
         Transaction transacao = null;
         try {
             transacao = sessao.beginTransaction();
 
             sessao.persist(bombeiro01);
+            sessao.persist(usuario01);
 
             transacao.commit();
 

@@ -33,15 +33,16 @@ public class Bombeiro {
     private Integer id;
     @Column(name = "bom_cpf", length = 11, unique = true)
     private String cpf;
-    @Column(name = "bom_dataNascimento", nullable = false)
-    private LocalDate dataNascimento;
-    @Column(name = "bom_nomeCompleto", nullable = false, length = 45)
-    private String nomeCompleto;
-    @Column(name = "bom_nomeGuerra", unique = true, nullable = false, length = 45)
-    private String nomeGuerra;
-    /*
+    @Column(name = "bom_data_nascimento", nullable = false)
+    private LocalDate data_nascimento;
+    @Column(name = "bom_nome_completo", nullable = false, length = 45)
+    private String nome_completo;
+    @Column(name = "bom_nome_guerra", unique = true, nullable = false, length = 45)
+    private String nome_guerra;
+    
     @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
+    /*
     @OneToMany(mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     @ManyToMany
@@ -54,7 +55,7 @@ public class Bombeiro {
     public Bombeiro() {
 
     }
-
+/*
     public Integer getId() {
         return id;
     }
@@ -72,29 +73,29 @@ public class Bombeiro {
     }
 
     public LocalDate getDataNascimento() {
-        return dataNascimento;
+        return data_nascimento;
     }
 
     public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+        this.data_nascimento = dataNascimento;
     }
 
     public String getNomeCompleto() {
-        return nomeCompleto;
+        return nome_completo;
     }
 
     public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+        this.nome_completo = nomeCompleto;
     }
 
     public String getNomeGuerra() {
-        return nomeGuerra;
+        return nome_guerra;
     }
 
     public void setNomeGuerra(String nomeGuerra) {
-        this.nomeGuerra = nomeGuerra;
+        this.nome_guerra = nomeGuerra;
     }
-/*
+*/
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -102,7 +103,7 @@ public class Bombeiro {
     public Usuario getUsuario() {
         return usuario;
     }
-
+/*
     public Set<TelefoneContato> getTelefone() {
         return telefone;
     }

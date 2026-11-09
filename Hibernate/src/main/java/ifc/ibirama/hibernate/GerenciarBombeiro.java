@@ -5,6 +5,7 @@
 package ifc.ibirama.hibernate;
 
 import ifc.ibirama.hibernate.entidades.Bombeiro;
+import ifc.ibirama.hibernate.entidades.Usuario;
 import ifc.ibirama.hibernate.util.HibernateUtil;
 import java.time.LocalDate;
 import java.time.Month;
@@ -23,27 +24,27 @@ public class GerenciarBombeiro {
 
         System.out.println("Conexão estabelecida");
 
-        Bombeiro bombeiro01 = new Bombeiro();
-        bombeiro01.setCpf("12312312300");
-        bombeiro01.setNomeCompleto("Beltrano Silva");
-        bombeiro01.setNomeGuerra("Silva");
-        bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
+        Bombeiro bombeiro = new Bombeiro();
+        bombeiro.setCpf("12312312300");
+        bombeiro.setNomeCompleto("Beltrano Silva");
+        bombeiro.setNomeGuerra("Silva");
+        bombeiro.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
         
-        Usuario usuario01 = new Usuario();
-        usuario01.setLogin("beltrano.silva");
+        Usuario usuario = new Usuario();
+        usuario.setLogin("beltrano.silva");
         usuario.setSenha("1234");
         
-        bombeiro01.setUsuario(usuario01);
-        usuario01.setBombeiro(bombeiro01);
-        
+        bombeiro.setUsuario(usuario);
+        /*usuario01.setBombeiro(bombeiro01);
+        */
 
         Transaction transacao = null;
         try {
             transacao = sessao.beginTransaction();
 
-            sessao.persist(bombeiro01);
-            sessao.persist(usuario01);
-
+            sessao.persist(bombeiro);
+           /* sessao.persist(usuario01);
+           */
             transacao.commit();
 
             System.out.println("Bombeiro salvo");

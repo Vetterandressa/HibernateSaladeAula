@@ -40,7 +40,7 @@ public class Bombeiro {
     @Column(name = "bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
     
-    @OneToOne(mappedBy = "bombeiro")
+    @OneToOne(mappedBy = "bombeiro", cascade = {cascadeType.All})
     private Usuario usuario;
     /*
     @OneToMany(mappedBy = "bombeiro")

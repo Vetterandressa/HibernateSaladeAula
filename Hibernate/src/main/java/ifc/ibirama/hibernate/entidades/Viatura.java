@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "Viatura")
-public class Viatura {
+public abstract class Viatura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
